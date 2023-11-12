@@ -24,3 +24,15 @@ export const inputStyle = {
         color: "#fff",
     }
 };
+
+export const sortData = [
+    { value: "popularity", label: "Popularity" },
+    { value: "vote_average", label: "Rating" },
+    { value: "primary_release_date", label: "Release Date", },
+    { value: "original_title", label: "Title" },
+];
+
+export const sortDirection = {
+    desc: 'desc',
+    asc: 'asc',
+};
