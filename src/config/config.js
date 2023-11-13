@@ -7,6 +7,9 @@ export const noImagePath = '/image/no-img.svg';
 export const urlMoves = '/discover/movie';
 export const searchMovieUrl = '/search/movie';
 export const languageUrl = '/configuration/languages';
+export const person = '/person/popular';
+export const genreDefaultUrl = '/genre/movie/list';
+
 //local url
 export const searchUrl = '/search';
 export const urlMove = '/movie';

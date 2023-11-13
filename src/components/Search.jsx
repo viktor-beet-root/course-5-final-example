@@ -1,9 +1,14 @@
 import { TextField } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 import { inputStyle, searchUrl } from "../config/config";
 
-function Search() {
+Search.propTypes = {
+    className: PropTypes.string,
+};
+
+function Search({ className }) {
     const [searchValue, setSearchValue] = useState('');
     const navigate = useNavigate();
 
@@ -14,7 +19,7 @@ function Search() {
     }
 
     return (
-        <form method="get" onSubmit={searchHandler} action="search">
+        <form className={className} method="get" onSubmit={searchHandler} action="search">
             <TextField
                 size="small"
                 label="Search"

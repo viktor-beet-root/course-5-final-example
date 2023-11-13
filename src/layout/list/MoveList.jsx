@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { Pagination } from "@mui/material";
 import Move from "./Move";
+import scrollTop from "../../utils/scrollTop";
 
 MoveList.propTypes = {
     moveList: PropTypes.array,
@@ -10,6 +11,12 @@ MoveList.propTypes = {
 };
 
 function MoveList({ moveList, page, totalPage, handlePageChange }) {
+
+    function changePage(event, newPage) {
+        handlePageChange({ p: newPage });
+        scrollTop();
+    }
+
     return (
         <>
             <div className="flex flex-wrap">
@@ -37,7 +44,7 @@ function MoveList({ moveList, page, totalPage, handlePageChange }) {
                     '.MuiPagination-ul': {
                         gap: '10px'
                     }
-                }} count={totalPage} page={page} onChange={handlePageChange} siblingCount={2} boundaryCount={1} />
+                }} count={totalPage} page={page} onChange={changePage} siblingCount={2} boundaryCount={1} />
             </div>
         </>
     );

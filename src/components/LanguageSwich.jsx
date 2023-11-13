@@ -20,6 +20,7 @@ function getOptions(data) {
 }
 
 export default function LanguageSwich() {
+    const [hiddenClass, setHiddenClass] = useState('hidden');
     const [language, setLanguage] = useState(
         () => JSON.parse(window.localStorage.getItem(languageLocalStoreKey)) || null
     );
@@ -45,8 +46,14 @@ export default function LanguageSwich() {
     );
 
     return (
-        <div>
+        <div className="relative">
+            <button
+                onClick={() => setHiddenClass((currentValue) => currentValue ? "" : 'hidden')}
+                className="lg:hidden p-2 border border-orange-600 rounded">
+                Lang
+            </button>
             <Autocomplete
+                className={`${hiddenClass} absolute right-0 py-5 lg:block lg:static lg:p-0`}
                 disablePortal
                 options={languageList}
                 sx={{

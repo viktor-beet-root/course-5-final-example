@@ -7,10 +7,12 @@ function useMoves(url) {
     const [totalPage, setTotalPage] = useState(1);
     const [searchParams, setSearchParams] = useSearchParams();
 
-    function handlePageChange(event, newPage) {
-        searchParams.set('p', newPage);
+    function changeSearchParams(newValue) {
+        for (const key in newValue) {
+            searchParams.set(key, newValue[key]);
+        }
+
         setSearchParams(searchParams);
-        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }
 
     useEffect(() => {
@@ -26,7 +28,7 @@ function useMoves(url) {
         getMove();
     }, [url]);
 
-    return [moveList, totalPage, handlePageChange];
+    return [moveList, totalPage, changeSearchParams];
 }
 
 export default useMoves;

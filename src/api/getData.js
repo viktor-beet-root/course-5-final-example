@@ -21,7 +21,7 @@ async function getData(url, options) {
         ...options
     };
 
-    const response = await fetch(BASE_URL + url, options);
+    const response = await fetch(BASE_URL + decodeURIComponent(url), options);
     const data = await response.json();
 
     if (!data.errors) appLocalStorage(url, data);

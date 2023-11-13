@@ -4,7 +4,7 @@ import App from './App.jsx';
 import './index.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import NotFoundPage from './pages/NotFoundPage.jsx';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, StyledEngineProvider, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme({
     palette: {
@@ -52,8 +52,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <ThemeProvider theme={theme}>
-            <RouterProvider router={router} />
-        </ThemeProvider>
+        <StyledEngineProvider injectFirst>
+            <ThemeProvider theme={theme}>
+                <RouterProvider router={router} />
+            </ThemeProvider>
+        </StyledEngineProvider>
     </React.StrictMode>,
 );
