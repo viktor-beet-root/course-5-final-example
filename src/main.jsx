@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './index.css';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createHashRouter } from 'react-router-dom';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import { createTheme, StyledEngineProvider, ThemeProvider } from '@mui/material/styles';
 import { baseUrl } from './config/config.js';
@@ -18,7 +18,7 @@ const theme = createTheme({
     },
 });
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
         path: baseUrl,
         element: <App />,
