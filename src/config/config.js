@@ -1,3 +1,5 @@
+export const baseUrl = import.meta.env.BASE_URL;
+
 // image url
 export const imagesUrl = 'https://image.tmdb.org/t/p/w500';
 export const originalImagesUrl = 'https://image.tmdb.org/t/p/original';

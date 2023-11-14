@@ -5,6 +5,7 @@ import './index.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import { createTheme, StyledEngineProvider, ThemeProvider } from '@mui/material/styles';
+import { baseUrl } from './config/config.js';
 
 const theme = createTheme({
     palette: {
@@ -19,27 +20,27 @@ const theme = createTheme({
 
 const router = createBrowserRouter([
     {
-        path: '/',
+        path: baseUrl,
         element: <App />,
         children: [
             {
-                path: '/course-5-final-example/',
+                path: baseUrl,
                 lazy: () => import('./layout/Home.jsx'),
             },
             {
-                path: '/course-5-final-example/moves',
+                path: baseUrl + 'moves',
                 lazy: () => import('./layout/Moves.jsx'),
             },
             {
-                path: '/course-5-final-example/moves/:id',
+                path: baseUrl + 'moves/:id',
                 lazy: () => import('./layout/Move.jsx'),
             },
             {
-                path: '/course-5-final-example/tv',
+                path: baseUrl + 'tv',
                 lazy: () => import('./layout/Tv.jsx'),
             },
             {
-                path: '/course-5-final-example/search',
+                path: baseUrl + 'search',
                 lazy: () => import('./layout/Search.jsx'),
             },
         ]
