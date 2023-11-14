@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 function getOptions(data) {
     const optiopns = [];
 
-    if (data) {
+    if (data && Array.isArray(data)) {
         for (const option of data) {
             optiopns.push({
                 code: option.iso_639_1,
