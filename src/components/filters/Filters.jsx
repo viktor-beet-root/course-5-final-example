@@ -3,10 +3,9 @@ import FilterCheckList from './filterCheckList/FilterCheckList';
 
 Filters.propTypes = {
     filterData: PropTypes.array.isRequired,
-    onChange: PropTypes.func.isRequired,
 };
 
-function Filters({ filterData, onChange }) {
+function Filters({ filterData }) {
     return (
         <>
             <h2 className="border-b text-4xl font-bold pb-5 mb-5">Filters</h2>
@@ -20,7 +19,7 @@ function Filters({ filterData, onChange }) {
                                     checkList={filter.filterListOption}
                                     nameFilter={filter.filterName}
                                     titleFilter={filter.filterTitle}
-                                    onChange={onChange}
+                                    onChange={filter.hendleChengeFilter}
                                 />;
                             }
                         }

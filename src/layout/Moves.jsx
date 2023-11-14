@@ -12,6 +12,8 @@ import Filters from "../components/filters/Filters";
 import Sidebar from "../components/Sidebar";
 import Sorter from "../components/Sorter";
 import { AiFillFilter } from "react-icons/ai";
+import useClearFilter from "../hooks/useClearFilter";
+import ClearFilter from "../components/filters/ClearFilter";
 
 const deafaultSearchParams = {
     include_adult: false,
@@ -23,8 +25,9 @@ const deafaultSearchParams = {
 };
 
 function Moves() {
-    const [filterDataGenre, checkedGenreListId, hendleChengeGenreFilter] = useFiltersGenre();
+    const [filterDataGenre, checkedGenreListId] = useFiltersGenre();
     const filterData = [filterDataGenre];
+    const [clearData, isShowClearList] = useClearFilter([...filterData.map((filter) => ({ ...filter }))]);
 
     const [isOpenSidebar, toggleOpenSidebar] = useSidebar();
 
@@ -46,6 +49,9 @@ function Moves() {
                         <AiFillFilter className="inline-block mr-3 align-[-3px]" /> Filters
                     </button>
                 </div>
+                {
+                    isShowClearList && <ClearFilter clearData={clearData} />
+                }
                 <MoveList
                     moveList={moveList}
                     page={page}
@@ -60,7 +66,7 @@ function Moves() {
                 closeIcon={<FiX size={24} />}
                 toggleOpenSidebar={toggleOpenSidebar}
             >
-                <Filters filterData={filterData} onChange={hendleChengeGenreFilter} />
+                <Filters filterData={filterData} />
             </Sidebar>
         </>
     );

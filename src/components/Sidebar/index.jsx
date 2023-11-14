@@ -27,12 +27,10 @@ function Sidebar({ isOpen, closeIcon, className, type, children, toggleOpenSideb
         () => {
             if (isOpen) {
                 element.current.classList.remove('hidden');
-                window.requestAnimationFrame(
-                    () => {
-                        element.current.classList.remove(closeClass);
-                        element.current.classList.add(openClass);
-                    }
-                );
+                setTimeout(() => {
+                    element.current.classList.remove(closeClass);
+                    element.current.classList.add(openClass);
+                }, 10);
             } else {
                 element.current.classList.remove(openClass);
                 element.current.classList.add(closeClass);

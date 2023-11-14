@@ -16,6 +16,7 @@ function Search({ className }) {
         e.preventDefault();
 
         navigate(`${searchUrl}?search=${searchValue}`);
+        setSearchValue('');
     }
 
     return (

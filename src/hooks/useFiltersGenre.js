@@ -31,15 +31,17 @@ export default function useFiltersGenre() {
         getGenres();
     }, [genreUrl]);
 
-    function hendleChengeGenreFilter(id, nameFilter, isChecked) {
+    function hendleChengeFilter(id, nameFilter, isChecked) {
         if (nameFilter === filterName) {
-            seFilterListOption((currentValue) => {
-                const newValue = currentValue.map(
-                    (genre) => (genre.id === id && genre.checked !== isChecked) ? { ...genre, checked: isChecked } : genre
-                );
+            seFilterListOption(
+                (currentValue) => {
+                    const newValue = currentValue.map(
+                        (genre) => (genre.id === id && genre.checked !== isChecked) ? { ...genre, checked: isChecked } : genre
+                    );
 
-                return newValue;
-            });
+                    return newValue;
+                }
+            );
         }
     }
 
@@ -48,9 +50,9 @@ export default function useFiltersGenre() {
             filterType: 'check',
             filterListOption,
             filterName,
-            filterTitle
+            filterTitle,
+            hendleChengeFilter
         },
-        checkedGenreListId,
-        hendleChengeGenreFilter
+        checkedGenreListId
     ];
 }
