@@ -1,6 +1,6 @@
 import appLocalStorage from "./appLocalStorage";
 console.log(import.meta.env);
-const TOKEN = import.meta.env.VITE_APP_TMDB_TOKEN;
+const TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1Y2FkZTA3NjRkYzkzOTBhYjQ2Zjk5MWI1M2RiMzdjOCIsInN1YiI6IjVmYWJhY2VmNjNkNzEzMDA0MDk5NGJjZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.p8gr7yQ2C7Iqb3o9dr88QVbY3Yq_J-vmcXyz5-qbZ0o';
 const BASE_URL = 'https://api.themoviedb.org/3';
 
 const OPTIONS = {
