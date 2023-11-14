@@ -8,9 +8,9 @@ function getNavClasses({ isActive }) {
 function Menu() {
     return (
         <nav className="flex flex-col mt-10 md:flex-row md:m-0">
-            <NavLink className={getNavClasses} to="/">Home</NavLink>
-            <NavLink className={getNavClasses} to="/moves">Moves</NavLink>
-            <NavLink className={getNavClasses} to="/tv">Tv</NavLink>
+            <NavLink className={getNavClasses} to="/course-5-final-example/">Home</NavLink>
+            <NavLink className={getNavClasses} to="/course-5-final-example/moves">Moves</NavLink>
+            <NavLink className={getNavClasses} to="/course-5-final-example/tv">Tv</NavLink>
         </nav>
     );
 }

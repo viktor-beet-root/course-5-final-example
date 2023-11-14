@@ -23,23 +23,23 @@ const router = createBrowserRouter([
         element: <App />,
         children: [
             {
-                path: '/',
+                path: '/course-5-final-example/',
                 lazy: () => import('./layout/Home.jsx'),
             },
             {
-                path: '/moves',
+                path: '/course-5-final-example/moves',
                 lazy: () => import('./layout/Moves.jsx'),
             },
             {
-                path: '/moves/:id',
+                path: '/course-5-final-example/moves/:id',
                 lazy: () => import('./layout/Move.jsx'),
             },
             {
-                path: '/tv',
+                path: '/course-5-final-example/tv',
                 lazy: () => import('./layout/Tv.jsx'),
             },
             {
-                path: '/search',
+                path: '/course-5-final-example/search',
                 lazy: () => import('./layout/Search.jsx'),
             },
         ]
