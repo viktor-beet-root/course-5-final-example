@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { Pagination } from "@mui/material";
 import Move from "./Move";
 import scrollTop from "../../utils/scrollTop";
+import CircularProgress from '@mui/material/CircularProgress';
 
 MoveList.propTypes = {
     moveList: PropTypes.array,
@@ -11,18 +12,21 @@ MoveList.propTypes = {
 };
 
 function MoveList({ moveList, page, totalPage, handlePageChange }) {
-
     function changePage(event, newPage) {
         handlePageChange({ p: newPage });
         scrollTop();
     }
 
+    if (!moveList.length) return <CircularProgress />;
+
     return (
         <>
             <div className="flex flex-wrap">
-                {moveList?.map(
-                    (move) => <Move key={move.id} move={move} />
-                )}
+                {
+                    moveList.map(
+                        (move) => <Move key={move.id} move={move} />
+                    )
+                }
             </div>
             <div className="bg-gray-900 p-4 rounded-2xl flex justify-center">
                 <Pagination className="text-white" sx={{
