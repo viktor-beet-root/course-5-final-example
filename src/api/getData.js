@@ -1,5 +1,5 @@
 import appLocalStorage from "./appLocalStorage";
-
+console.log(import.meta.env);
 const TOKEN = import.meta.env.VITE_APP_TMDB_TOKEN;
 const BASE_URL = 'https://api.themoviedb.org/3';
 
