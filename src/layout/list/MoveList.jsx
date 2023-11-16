@@ -3,15 +3,20 @@ import { Pagination } from "@mui/material";
 import Move from "./Move";
 import scrollTop from "../../utils/scrollTop";
 import CircularProgress from '@mui/material/CircularProgress';
+import { viewModeValue } from "../../config/config";
+import MoveModeList from "./MoveModeList";
+import MoveModeDetail from "./MoveModeDetail";
 
 MoveList.propTypes = {
     moveList: PropTypes.array,
     page: PropTypes.number,
     totalPage: PropTypes.number,
+    viewMode: PropTypes.string,
+    genreHasheList: PropTypes.object,
     handlePageChange: PropTypes.func,
 };
 
-function MoveList({ moveList, page, totalPage, handlePageChange }) {
+function MoveList({ moveList, page, totalPage, viewMode, genreHasheList, handlePageChange }) {
     function changePage(event, newPage) {
         handlePageChange({ p: newPage });
         scrollTop();
@@ -21,10 +26,22 @@ function MoveList({ moveList, page, totalPage, handlePageChange }) {
 
     return (
         <>
-            <div className="flex flex-wrap">
+            <div className={`${viewMode !== viewModeValue.list.name ? "flex flex-wrap" : ""} p-5`}>
                 {
                     moveList.map(
-                        (move) => <Move key={move.id} move={move} />
+                        (move) => {
+                            if (viewMode === viewModeValue.thumbnails.name) {
+                                return <Move key={move.id} move={move} />;
+                            }
+
+                            if (viewMode === viewModeValue.list.name) {
+                                return <MoveModeList key={move.id} genreHasheList={genreHasheList} move={move} />;
+                            }
+
+                            if (viewMode === viewModeValue.details.name) {
+                                return <MoveModeDetail key={move.id} genreHasheList={genreHasheList} move={move} />;
+                            }
+                        }
                     )
                 }
             </div>

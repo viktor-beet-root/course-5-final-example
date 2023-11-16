@@ -1,3 +1,7 @@
+import { FaThList } from "react-icons/fa";
+import { BsReverseListColumnsReverse } from "react-icons/bs";
+import { BsGrid3X3GapFill } from "react-icons/bs";
+
 export const baseUrl = import.meta.env.BASE_URL;
 
 // image url
@@ -40,4 +44,22 @@ export const sortData = [
 export const sortDirection = {
     desc: 'desc',
     asc: 'asc',
+};
+
+export const viewModeValue = {
+    list: {
+        name: 'list',
+        label: "List",
+        icon: <BsReverseListColumnsReverse />,
+    },
+    details: {
+        name: 'details',
+        label: "Details",
+        icon: <FaThList />,
+    },
+    thumbnails: {
+        name: 'thumbnails',
+        label: "Thumbnails",
+        icon: <BsGrid3X3GapFill />,
+    }
 };

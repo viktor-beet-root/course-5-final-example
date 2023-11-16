@@ -7,12 +7,25 @@ const deafaultGenresParams = {
     language: 'en-US',
 };
 
+function getGenreHasheList(filterListOption) {
+    const genreHasheList = {};
+
+    if (Array.isArray(filterListOption) && filterListOption.length) {
+        for (const genre of filterListOption) {
+            genreHasheList[genre.id] = genre.name;
+        }
+    }
+
+    return genreHasheList;
+}
+
 export default function useFiltersGenre() {
     const [genreUrl] = useUrl(genreDefaultUrl, deafaultGenresParams);
     const [filterListOption, seFilterListOption] = useState([]);
     const checkedGenreListId = filterListOption.filter((genre) => genre.checked).map((genre) => genre.id).join('|');
     const filterName = 'genre';
     const filterTitle = 'Generes';
+    const genreHasheList = getGenreHasheList(filterListOption);
 
     useEffect(() => {
         async function getGenres() {
@@ -53,6 +66,7 @@ export default function useFiltersGenre() {
             filterTitle,
             hendleChengeFilter
         },
-        checkedGenreListId
+        checkedGenreListId,
+        genreHasheList
     ];
 }

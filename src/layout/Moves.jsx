@@ -14,6 +14,8 @@ import Sorter from "../components/Sorter";
 import { AiFillFilter } from "react-icons/ai";
 import useClearFilter from "../hooks/useClearFilter";
 import ClearFilter from "../components/filters/ClearFilter";
+import ViewModeSwitcher from "../components/ViewModeSwitcher";
+import useViewMode from "../hooks/useViewMode";
 
 const deafaultSearchParams = {
     include_adult: false,
@@ -25,7 +27,8 @@ const deafaultSearchParams = {
 };
 
 function Moves() {
-    const [filterDataGenre, checkedGenreListId] = useFiltersGenre();
+    const [mode, changeViewMode] = useViewMode();
+    const [filterDataGenre, checkedGenreListId, genreHasheList] = useFiltersGenre();
     const filterData = [filterDataGenre];
     const [clearData, isShowClearList] = useClearFilter([...filterData.map((filter) => ({ ...filter }))]);
 
@@ -46,8 +49,9 @@ function Moves() {
                 <div className="flex p-5 bg-gray-900 rounded-2xl">
                     <Sorter sortValue={sortValue} onChange={handleSorter} direction={direction} />
                     <button className="ml-5 p-3 text-2xl rounded border border-orange-600" onClick={toggleOpenSidebar}>
-                        <AiFillFilter className="inline-block mr-3 align-[-3px]" /> Filters
+                        <AiFillFilter className="inline-block lg:mr-3 align-[-3px]" /> <span className="hidden lg:inline">Filters</span>
                     </button>
+                    <ViewModeSwitcher mode={mode} onChange={changeViewMode} />
                 </div>
                 {
                     isShowClearList && <ClearFilter clearData={clearData} />
@@ -57,6 +61,8 @@ function Moves() {
                     page={page}
                     totalPage={totalPage}
                     handlePageChange={changeSearchParams}
+                    viewMode={mode}
+                    genreHasheList={genreHasheList}
                 />
             </div>
             <Sidebar
