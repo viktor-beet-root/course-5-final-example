@@ -1,0 +1,1 @@
+import{$ as n,a6 as s,a7 as r}from"./index-3a77f27c.js";function c(o,e){const[g]=n(),a=Number(g.get("p"))||1,t=JSON.parse(window.localStorage.getItem(s));return Object.prototype.hasOwnProperty.call(e,"page")&&(e.page=a),e.language=t?t.code:r,[`${o}?${new URLSearchParams(e).toString()}`,a]}export{c as u};
