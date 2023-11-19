@@ -1,8 +1,29 @@
 import { FaThList } from "react-icons/fa";
 import { BsReverseListColumnsReverse } from "react-icons/bs";
 import { BsGrid3X3GapFill } from "react-icons/bs";
+import { FaWikipediaW, FaFacebook, FaInstagram } from "react-icons/fa";
+import { LiaImdb } from "react-icons/lia";
 
 export const baseUrl = import.meta.env.BASE_URL;
+export const moveIdSearchValue = '::moveId::';
+export const allowedSocialNetwoks = {
+    imdb_id: {
+        url: 'https://www.imdb.com/title/',
+        icon: <LiaImdb />,
+    },
+    wikidata_id: {
+        url: 'https://www.wikidata.org/wiki/',
+        icon: <FaWikipediaW />,
+    },
+    facebook_id: {
+        url: 'https://www.facebook.com/',
+        icon: <FaFacebook />,
+    },
+    instagram_id: {
+        url: 'https://www.instagram.com/',
+        icon: <FaInstagram />,
+    },
+};
 
 // image url
 export const imagesUrl = 'https://image.tmdb.org/t/p/w500';
@@ -15,6 +36,9 @@ export const searchMovieUrl = '/search/movie';
 export const languageUrl = '/configuration/languages';
 export const person = '/person/popular';
 export const genreDefaultUrl = '/genre/movie/list';
+export const actorsUrl = `/movie/${moveIdSearchValue}/credits`;
+export const socialNetworksUrl = `/movie/${moveIdSearchValue}/external_ids`;
+export const videosUrl = `/movie/${moveIdSearchValue}/videos`;
 
 //local url
 export const searchUrl = '/search';

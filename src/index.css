@@ -13,3 +13,7 @@ body {
 input {
     @apply bg-gray-700;
 }
+
+.center {
+    @apply top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%];
+}
